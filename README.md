@@ -1,47 +1,56 @@
 ---
 # Tokopakerte Backend (Laravel)
 
-## 📌 Introduction
-Tokopakerte API is the backend service for the Tokopakerte e-commerce platform, built using Laravel. It provides a RESTful API for managing products, users, orders, and authentication.
+Backend API menggunakan Laravel untuk aplikasi autentikasi dengan fitur login, registrasi, dan proteksi rute menggunakan token JWT.
 
-## 🚀 Technologies Used
-- **Laravel** - PHP Framework
-- **MySQL** - Database
-- **JWT Authentication** (or Sanctum if used)
-- **Laravel Migrations & Seeders**
-- **Postman** (for API testing)
+## 🚀 Instalasi & Menjalankan Server
 
-## 🛠️ Setup & Installation
-### Prerequisites
-- PHP >= 8.2
-- Composer
-- MySQL / MariaDB
-- Laravel 11
+1. **Clone repository ini**
+   ```sh
+   git clone https://github.com/username/tokopakerte-backend.git
+   cd tokopakerte-backend
+   ```
 
-### Installation Steps
-```sh
-# Clone the repository
-git clone https://github.com/tamzidan/tokopakerte-backend.git
-cd tokopakerte-api
+2. **Install dependencies**
+   ```sh
+   composer install
+   ```
 
-# Install dependencies
-composer install
+3. **Buat file environment**
+   ```sh
+   cp .env.example .env
+   ```
 
-# Copy .env example and configure your database
-cp .env.example .env
+4. **Konfigurasi database di `.env`**
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nama_database
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-# Generate application key
-php artisan key:generate
+5. **Generate key & migrate database**
+   ```sh
+   php artisan key:generate
+   php artisan migrate --seed
+   ```
 
-# Run migrations
-touch database/database.sqlite
-php artisan migrate --seed
+6. **Jalankan server**
+   ```sh
+   php artisan serve
+   ```
 
-# Start the server
-php artisan serve
-```
+## 🔑 API Endpoints
 
-### API Documentation
-(If using Laravel Swagger, Insomnia, or Postman, provide API collection link)
+- **POST** `/api/register` → Registrasi user baru
+- **POST** `/api/login` → Login user
+- **GET** `/api/user` → Ambil data user (harus autentikasi)
+- **POST** `/api/logout` → Logout user
+
+## 📜 Lisensi
+
+Proyek ini menggunakan lisensi MIT.
 
 ---
